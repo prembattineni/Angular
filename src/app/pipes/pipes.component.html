@@ -1,0 +1,15 @@
+<p>pipes works!</p>
+<pre>
+    name: {{name | reversepipe}}<!-- from mypipes -->
+    name: {{name | myuppercase}}
+    name in mytittlecase : {{name | mytitlecase}}
+    name in lowercase : {{name | lowercase}}
+    name in titlecase : {{name | titlecase}}
+    part of name      :  {{name | slice:0:6}}
+    today             :  {{dob}}
+    today             :  {{dob | date}}
+    today             :  {{dob | date:'fullDate'}}
+    today              : {{dob | date:'dd/MM/yyyy hh:mm:ss'}}
+    Json               : {{customer}}
+    Json               : {{customer | json}}
+</pre>

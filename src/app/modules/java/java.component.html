@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<h2  align='center'>Products</h2>
+
+<div class="container" >
+<table class="table">
+<tr>
+    <td><input type="text" align="left" class="form-control" placeholder="Search" [(ngModel)]="filteredString"/></td>
+    <td>
+        <select class="form-control" [(ngModel)]='sort'>
+           <option  [value]='1'>sortByName</option>
+           <option [value]='2'>sortById</option>
+           <option [value]='3'>sortByPrice</option>
+          </select>
+          </td>
+        </tr>
+
+  </table>
+
+<table  class="table">
+  <tr>
+    <th style="background-color:lightgray;">Product ID</th>
+    <th style="background-color:lightgray;">Product Name</th>
+    <th style="background-color:lightgray;">Product Price</th>
+    <th style="background-color:lightgray;">Product Desc</th>
+    <th style="background-color:lightgray;">Product Img</th>
+  </tr>
+      <tr *ngFor='let product of products | searchpipe:filteredString | filterpipe:sort' appMycolor >
+   <td> {{product.productId }} </td>
+   <td> {{product.productName | titlecase}} </td>
+   <td>{{product.productPrice | currency:'INR'}} </td>
+   <td>{{product.productDesc  | lowercase}}</td>
+   <td><img [src]='product.productImg' height='85px' width= '65px'></td>
+   </tr>
+</table>
+</div>
+
+<nav>
+  <div>
+  <!--
+  <ul class="nav navbar-nav"> -->
+    <a class="active" href="#">Home</a>&nbsp;&nbsp;
+    <a [routerLink]="['java1']" routerLinkActive='active'>Samsung</a>&nbsp;&nbsp;
+    <a routerLink='java2' routerLinkActive='active'>IPhone</a>
+
+  </div>
+  </nav>
+
+  <router-outlet></router-outlet>

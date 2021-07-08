@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<h2  align='center'>Employees</h2>
+
+<div class="container" >
+<table class="table">
+<tr>
+  <td><input type="text" align="left" class="form-control" placeholder="Search" [(ngModel)]="filteredString"/></td>
+    <td>
+        <select class="form-control" [(ngModel)]='sort'>
+           <option  [value]='1'>sortByName</option>
+           <option [value]='2'>sortById</option>
+           <option [value]='3'>sortByPrice</option>
+          </select>
+          </td>
+        </tr>
+
+  </table>
+
+<table  class="table" >
+  <tr>
+    <th style="background-color:lightskyblue;">Employee Id</th>
+    <th style="background-color:lightskyblue;">Employee Name</th>
+    <th style="background-color:lightskyblue;">Employee salary</th>
+  </tr>
+  <tr *ngFor='let employee of employees | searchpipe1:filteredString | filterpipe1:sort'   appMycolor >
+    <td> {{employee.empId }} </td>
+    <td> {{employee.empName | titlecase}} </td>
+    <td>{{employee.empSalary | currency:'INR'}} </td>
+
+   </tr>
+</table>
+</div>
+<nav>
+  <div>
+  <!--
+  <ul class="nav navbar-nav"> -->
+    <a class="active" href="#">Home</a>&nbsp;&nbsp;
+    <a [routerLink]="['web1']" routerLinkActive='active'>Prem</a>&nbsp;&nbsp;
+    <a routerLink='web2' routerLinkActive='active'>Kedari</a>
+
+  </div>
+  </nav>
+
+  <router-outlet></router-outlet>

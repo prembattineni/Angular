@@ -1,0 +1,23 @@
+<div class="container"  >
+    <table class='table'>
+        <tr *ngIf='products.length>0'>
+            <th>Product Name</th>
+            <th>Product Id</th>
+            <th>Product Price</th>
+        </tr>
+        <!-- <tr *ngFor='let employee of employees'>
+            <td>{{employee.empId}}</td>
+            <td>{{employee.empName}}</td>
+        </tr> -->
+        <tr *ngFor='let product of products' appMycolor >
+
+          <td>{{product.Product_Name}} </td>
+          <td>{{product.Id}}</td>
+          <td>{{product.price}}</td>
+        </tr>
+
+      {{errMsg}}
+    </table>
+    <br>
+
+</div>

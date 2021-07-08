@@ -1,0 +1,34 @@
+[
+
+  {
+
+      "Product_Name":"laptop",
+
+      "Id": 170030179,
+
+      "price": 80000
+
+  },
+
+  {
+
+      "Product_Name":"tablet",
+
+      "Id": 170031345,
+
+      "price": 40000
+
+  },
+
+  {
+
+      "Product_Name":"mobile",
+
+      "Id": 170030067,
+
+      "price": 60000
+
+  }
+
+]
+
